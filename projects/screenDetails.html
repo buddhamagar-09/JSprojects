@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f0f0f0;
+    }
+
+    div {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: justify;
+    }
+
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        background-color: #007BFF;
+        color: white;
+        margin-bottom: 15px;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    p {
+        margin: 5px 0;
+        font-size: 14px;
+        color: #333;
+        display: none;
+
+    }
+</style>
+
+<body>
+
+    <div>
+        <button type="button" id="btn">Show Details</button>
+        <p id="av_height_screen"></p>
+        <p id="av_width_screen"></p>
+        <p id="height_screen"></p>
+        <p id="width_screen"></p>
+        <p id="pixel_screen"></p>
+        <p id="color_depth"></p>
+    </div>
+    <script>
+
+        let btn = document.getElementById("btn");
+        btn.addEventListener("click", () => {
+            let p = document.querySelectorAll("p");
+            p.forEach((element) => {
+                element.style.display = "block";
+            });
+            btn.classList.toggle("active");
+            if (btn.classList.contains("active")) {
+                btn.innerHTML = "Hide Details";
+            } else {
+                btn.innerHTML = "Show Details";
+                p.forEach((element) => {
+                    element.style.display = "none";
+                });
+                return;
+            }
+
+            let av_height = document.getElementById("av_height_screen");
+            let av_width_screen = document.getElementById("av_width_screen");
+            let height_screen = document.getElementById("height_screen");
+            let width_screen = document.getElementById("width_screen");
+            let pixel_screen = document.getElementById("pixel_screen");
+            let color_depth = document.getElementById("color_depth");
+
+            av_height.innerHTML = "Available height of the screen is: " + screen.availHeight;
+            av_width_screen.innerHTML = "Available width of the screen is: " + screen.availWidth;
+            height_screen.innerHTML = "Total height of the screen is: " + screen.height;
+            width_screen.innerHTML = "Total width of the screen is: " + screen.width;
+            pixel_screen.innerHTML = "Screen Pixel depth of the screen is: " + screen.pixelDepth;
+            color_depth.innerHTML = "Color depth of the screen is: " + screen.colorDepth;
+        });
+    </script>
+</body>
+
+</html>

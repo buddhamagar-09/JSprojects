@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    body {
+        background-color: #f0f0f0;
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+    }
+    .container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    input[type="date"] {
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    .buttons {
+        display: flex;
+        gap: 10px;
+    }
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        background-color: #007bff;
+        color: white;
+    }
+    button:hover {
+        background-color: #0056b3;
+    }
+    .display {
+        margin-top: 20px;
+        font-size: 18px;
+        color: #333;
+    }
+    .year, .month, .date {
+        margin-top: 10px;
+        font-weight: bold;
+        color: #555;
+    }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+  <div>
+    <label for="enter">Enter:</label>
+    <input type="date" id="enter" />
+  </div>
+  <div class="buttons">
+    <button class="" onclick="getYear()">GetYear</button>
+    <button class="" onclick="getMonth()">GetMonth</button>
+    <button class="" onclick="getDate()">GetDate</button>
+  </div>
+  <div class="display"></div>
+  <h1 class="year"></h1>
+  <h1 class="month"></h1>
+  <h1 class="date"></h1>
+    </div>
+    <script>
+    function getYear() {
+        const dateInput = document.getElementById('enter').value;
+        if (!dateInput) {
+            alert('Please select a date first.');
+            return;
+        }
+        const date = new Date(dateInput);
+        const year = date.getFullYear();
+        document.querySelector('.year').innerText = `Year: ${year}`;
+    }
+    function getMonth() {
+        const dateInput = document.getElementById('enter').value;
+        if (!dateInput) {
+            alert('Please select a date first.');
+            return;
+        }
+        const date = new Date(dateInput);
+        const month = date.getMonth() + 1; // Months are zero-based
+        document.querySelector('.month').innerText = `Month: ${month}`;
+    }
+    function getDate() {
+        const dateInput = document.getElementById('enter').value;
+        if (!dateInput) {
+            alert('Please select a date first.');
+            return;
+        }
+        const date = new Date(dateInput);
+        const day = date.getDate();
+        document.querySelector('.date').innerText = `Date: ${day}`;
+    } 
+    </script>
+</body>
+</html>

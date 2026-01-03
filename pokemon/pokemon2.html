@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/src/output.css">
+</head>
+
+<body class="bg-gradient-to-b from-[#EF5350] via-[#FFEB3B] to-white min-h-screen flex items-center justify-center">
+
+    <section class="bg-white h-[580px] w-[550px] rounded-lg shadow-xl 
+    border-4 border-[#2A75BB] flex flex-col items-center p-4">
+
+        <form action="" class=" flex flex-col items-center">
+            <label for="enter" class="font-bold text-[#2A75BB]">Enter a Pokémon name:</label>
+            <input type="text" id="enter" name="enter" class="outline-none border border-[#2A75BB] rounded-lg mt-2 pl-3"
+                required><br>
+
+            <button id="search-button"
+                class="bg-[#EF5350] text-white rounded-lg mt-2 px-4 py-2 cursor-pointer hover:bg-red-600">
+                Search
+            </button>
+        </form>
+         <div id="loader" class="hidden mt-6">
+            <div class="w-12 h-12 border-4 border-[#2A75BB] border-t-transparent rounded-full animate-spin"></div>
+        </div>
+        <div class="h-60 w-60 mt-10" id="pokemon_image">
+            <img src="" alt="" class="h-full w-full hidden" id="image">
+        </div>
+
+       
+
+        <div id="pokemon_data" class="flex flex-col items-center justify-center mt-4">
+            <h1 class="text-3xl font-bold text-[#2A75BB] hidden">Pokémon Details</h1>
+            <p id="name" class="text-xl text-[#2A75BB]"></p>
+            <p id="type" class="text-xl text-[#EF5350]"></p>
+            <p id="ability" class="text-xl text-[#FF9800]"></p>
+        </div>
+
+        <div id="error_msg" class="mt-4">
+            <p id="error" class="text-red-600 text-2xl font-bold hidden">No Pokémon found</p>
+        </div>
+
+    </section>
+    <script src="pokemon2.js"></script>
+</body>
+</html>

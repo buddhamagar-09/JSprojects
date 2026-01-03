@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Pokémon Card Generator</title>
+  <link rel="stylesheet" href="/src/output.css">
+</head>
+<body class="min-h-screen w-full flex justify-center items-center bg-gradient-to-b from-purple-200 via-pink-200 to-red-200">
+
+  <section class="main_container bg-white rounded-2xl shadow-xl p-5 sm:p-8 flex flex-col items-center space-y-5 w-11/12 sm:w-3/4 md:w-2/3 lg:w-1/2 max-w-xl">
+    
+    <h1 class="text-3xl sm:text-4xl font-bold text-center text-gray-800">Random Pokémon Card Generator</h1>
+
+    <button type="button" class="btn p-2 sm:p-3 bg-violet-500 rounded-2xl text-white text-lg sm:text-xl cursor-pointer hover:bg-violet-600 transition-all duration-200">Generate</button>
+
+    <!-- Image container -->
+    <div class="image h-48 sm:h-60 w-48 sm:w-60">
+      <img src="" alt="Pokemon card Details" class="h-full w-full object-contain object-center rounded-lg shadow-md">
+    </div>
+
+    <!-- Details container -->
+    <div class="Pokemon_Details w-full flex flex-col items-center space-y-2 sm:space-y-4 font-semibold text-center">
+      <h1 class="Details text-xl sm:text-2xl font-bold text-gray-800">Pokémon Details:</h1>
+      <p class="name text-gray-700 text-base sm:text-lg"></p>
+      <p class="type text-gray-700 text-base sm:text-lg"></p>
+      <p class="ability text-gray-700 text-base sm:text-lg"></p>
+    </div>
+
+    <!-- Error message -->
+    <div class="error_container hidden mt-4">
+      <p class="error_message text-red-600 font-bold text-lg sm:text-2xl text-center">No Pokémon Card Found!!</p>
+    </div>
+
+  </section>
+
+  <script src="pcard.js"></script>
+</body>
+</html>

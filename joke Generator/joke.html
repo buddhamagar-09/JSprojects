@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Mode Joke Generator</title>
+    <link rel="stylesheet" href="/src/output.css">
+</head>
+
+<body class="h-screen w-full flex items-center justify-center bg-gray-900">
+
+    <section
+        class="container h-96 w-11/12 max-w-md bg-gray-800 border-2 border-gray-700 rounded-2xl flex flex-col items-center space-y-5 p-5 shadow-lg">
+        
+        <h1 class="text-3xl font-bold text-center mt-4 text-white">Random Joke Generator</h1>
+        
+        <button type="button"
+            class="p-2 bg-pink-500 hover:bg-pink-600 text-white rounded-xl cursor-pointer transition-all duration-200">Generate</button>
+
+        <!-- Loader -->
+        <div id="loader" class="mt-6 hidden">
+            <div class="w-12 h-12 border-4 border-pink-500 border-t-transparent rounded-full animate-spin"></div>
+        </div>
+
+        <!-- Joke Container -->
+        <div class="jokes h-[66%] w-full p-5 bg-gray-700 rounded-xl flex flex-col items-center justify-start space-y-5">
+            <p class="setup font-bold text-white text-center"></p>
+            <p class="punchline font-bold text-pink-400 text-center opacity-0 transition-opacity duration-500"></p>
+        </div>
+    </section>
+    
+    <script src="joke.js"></script>
+</body>
+
+</html>

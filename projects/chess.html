@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chessboard with JS</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      background: #f5f5f5;
+      font-family: Arial, sans-serif;
+    }
+
+    .board {
+      display: grid;
+      grid-template-columns: repeat(8, 60px); /* 8 columns */
+      grid-template-rows: repeat(8, 60px);    /* 8 rows */
+      border: 6px solid #222;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    .square {
+      width: 60px;
+      height: 60px;
+    }
+
+    .light {
+      background: #ffffff;
+    }
+
+    .dark {
+      background: #000000;
+    }
+  </style>
+</head>
+<body>
+  <div class="board" id="chessboard"></div>
+
+  <script>
+    const board = document.getElementById("chessboard");
+
+    // Loop to create 8x8 = 64 squares
+    for (let row = 0; row < 8; row++) {
+      for (let col = 0; col < 8; col++) {
+        const square = document.createElement("div");
+        square.classList.add("square");
+
+        // Alternate colors
+        if ((row + col) % 2 === 0) {
+          square.classList.add("light");
+        } else {
+          square.classList.add("dark");
+        }
+
+        board.appendChild(square);
+      }
+    }
+  </script>
+</body>
+</html>

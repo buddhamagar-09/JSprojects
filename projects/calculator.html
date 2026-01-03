@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 2px;
+        }
+
+        input[ type="button"] {
+            width: 90px;
+            height: 50px;
+            font-size: 20px;
+            background-color: rgb(65, 62, 62);
+            color: white;
+        }
+
+        input[type="text"] {
+            /* width: 280px; */
+            height: 50px;
+            font-size: 20px;
+        }
+
+        #display {
+            width: 380px;
+            height: 50px;
+            font-size: 20px;
+            text-align: right;
+            background-color: rgb(151, 151, 51);
+        }
+
+        #clearBtn,
+        #clearEntryBtn {
+            width: 90px;
+            height: 50px;
+            font-size: 20px;
+            background-color: rgb(239, 87, 87);
+        }
+
+        #divideBtn,
+        #multiplyBtn,
+        #subtractBtn,
+        #addBtn,
+        #modulusBtn,
+        #equalsBtn {
+            width: 90px;
+            height: 50px;
+            font-size: 20px;
+        }
+
+        #zeroBtn {
+            width: 190px;
+            height: 50px;
+            font-size: 20px;
+        }
+
+        #decimalBtn {
+            width: 90px;
+            height: 50px;
+            font-size: 20px;
+        }
+
+        .calculator {
+            width: 400px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 20px;
+            border: 2px solid #000;
+            border-radius: 10px;
+            align-self: center;
+            justify-self: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="calculator">
+
+        <div>
+            <input type="text" id="display" value="0" readonly><br>
+            <input type="button" value="C" onclick="clearDisplay()" id="clearBtn">
+            <input type="button" value="CE" onclick="clearEntry()" id="clearEntryBtn">
+            <input type="button" value="/" id="divideBtn" onclick="division()">
+            <input type="button" value="*" id="multiplyBtn" onclick="multiplication()"><br>
+            <input type="button" value="7" onclick="appendToDisplay('7')">
+            <input type="button" value="8" onclick="appendToDisplay('8')    ">
+            <input type="button" value="9" onclick="appendToDisplay('9')">
+            <input type="button" value="-" id="subtractBtn" onclick="subtraction()"><br>
+            <input type="button" value="4" onclick="appendToDisplay('4')">
+            <input type="button" value="5" onclick="appendToDisplay('5')">
+            <input type="button" value="6" onclick="appendToDisplay('6')">
+            <input type="button" value="+" id="addBtn" onclick="addition()"><br>
+            <input type="button" value="1" onclick="appendToDisplay('1')">
+            <input type="button" value="2" onclick="appendToDisplay('2')    ">
+            <input type="button" value="3" onclick="appendToDisplay('3')">
+            <input type="button" value="%" id="modulusBtn" onclick="modulus()"><br>
+            <input type="button" value="0" onclick="appendToDisplay('0')" id="zeroBtn">
+            <input type="button" value="." id="decimalBtn" onclick="appendToDisplay('.')">
+            <input type="button" value="=" id="equalsBtn" onclick="calculateResult()">
+        </div>
+    </div>
+    <script>
+        function appendToDisplay(value) {
+            let display = document.getElementById("display");
+            if (display.value === "0" && value !== ".") {
+                display.value = value; // Replace 0 with the new value
+            } else {
+                display.value += value; // Append the new value
+            }
+        }
+
+        function clearDisplay() {
+            document.getElementById("display").value = "0"; // Reset display to 0
+        }
+        function clearEntry() {
+            let display = document.getElementById("display");
+            if (display.value.length > 1) {
+                display.value = display.value.slice(0, -1); // Remove last character
+            } else {
+                display.value = "0"; // Reset to 0 if only one character remains
+            }
+        }
+        function addition() {
+            let display = document.getElementById("display");
+            display.value += "+"; // Append addition operator
+        }
+        function subtraction() {
+            let display = document.getElementById("display");
+            display.value += "-"; // Append subtraction operator    
+        }
+        function multiplication() {
+            let display = document.getElementById("display");
+            display.value += "*"; // Append multiplication operator
+        }
+        function division() {
+            let display = document.getElementById("display");
+            display.value += "/"; // Append division operator
+        }
+        function modulus() {
+            let display = document.getElementById("display");
+            display.value += "%"; // Append modulus operator
+        }
+        function calculateResult() {
+            let display = document.getElementById("display");
+            try {
+                let result = Function("return " + display.value)();
+                display.value = result;
+            } catch {
+                alert("Invalid expression");
+                display.value = "0";
+            }
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>

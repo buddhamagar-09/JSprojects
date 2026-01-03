@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/src/output.css">
+</head>
+
+<body class="min-h-screen flex items-center justify-center">
+
+    <section
+        class="weather bg-gradient-to-b via to-blue-800 h-[650px] w-[600px] flex flex-col items-center space-y-14 shadow-lg rounded-xl p-4 "
+        id="container">
+        <form action="" id="form" class="">
+            <input type="text" id="city" name="city" placeholder="Enter city name" class="border border-gray-800  text-center text-xl rounded-l-2xl rounded-r-2xl p-1" required>
+            <button id="search-button" class="bg-white pt-1.5 pl-2.5 pb-1.5 pr-2.5 rounded-full cursor-pointer"><i
+                    class="fa-solid fa-magnifying-glass text-black"></i></button>
+        </form>
+        <div class="bg-white p-4 rounded-md shadow-md flex flex-col items-center min-w-[300px] hidden"
+            id="weather_data">
+            <h2 id="city-name" class="font-bold text-2xl "> Nepal</h2>
+            <div class="h-50 w-50 object-cover " id="weather_icon">
+                <img src="" alt="" id="icon" class="h-full w-full object-cover  ">
+            </div>
+            <div class="flex flex-col items-center">
+                <p class=" font-bold text-7xl " id="temperature"></p>
+                <p class=" font-bold text-xl " id="weather-description">windy</p>
+            </div>
+        </div>
+
+        <div id="additional_info"
+            class="bg-white rounded-md shadow-md flex justify-between items-center min-w-[300px] space-y-2 p-4 w-full hidden">
+            <div id="humidity" class="flex flex-col items-center justify-center space-y-3">
+                <span class=" font-bold " id="humidity-label">Humidity</span>
+                <span class="text-2xl " id="humidity-value"><i class="fa-solid fa-droplet text-4xl" id="humidity-icon"></i></span>
+
+            </div>
+            <div id="wind" class="flex flex-col items-center justify-center space-y-3">
+                <span class="mr-28 font-bold " id="wind-label">Wind</span>
+                <span class="text-2xl " id="wind-value"><i class="fa-solid fa-wind text-4xl" id="wind-icon"></i></span>
+            </div>
+        </div>
+        <div id="error_msg" class="mt-4 hidden">
+            <p id="error" class="text-red-500 text-2xl font-bold ">City not found</p>
+        </div>
+    </section>
+    <script src="weather.js"></script>
+</body>
+
+</html>

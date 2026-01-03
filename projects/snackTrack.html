@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 95vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #b2d7ff;
+        }
+
+        #mainContainer {
+            height: fit-content;
+            width: 40%;
+            border: 2px solid black;
+            background-color:#ffffff;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #btn {
+            padding: 5px 9px;
+            font-size: medium;
+            font-weight: 600;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white ;
+
+        }
+
+        #olcontainer {
+            height: 100%;
+            width: 100%;
+        }
+
+        form {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: #f5f7fa;
+
+        }
+
+        label {
+            font-size: large;
+            font-weight: 1000;
+            margin-right: 10px;
+
+        }
+
+        #fname {
+            padding: 5px 9px;
+            font-size: medium;
+
+        }
+
+        #olist {
+            height: 100%;
+            width: 100%;
+            /* background-color: white; */
+            overflow-y: auto;
+            padding: 10px;
+
+        }
+
+        li {
+            margin-bottom: 8px;
+            padding: 5px 9px;
+            /* background-color: white; */
+            font-size: large;
+            font-weight: 400;
+            color: #333333;
+            list-style-type: none;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .delbtn {
+            margin-right: 20px;
+            padding:4px 8px;
+            background-color: #ff4d4f;
+        }
+    </style>
+</head>
+
+<body>
+
+    <section id="mainContainer">
+
+        <form action="">
+            <span>
+                <label for="Input">Enter Food Name:</label>
+                <input type="text" id="fname" name="fname">
+            </span>
+            <button type="button" id="btn">Add</button>
+        </form>
+        <div id="olcontainer">
+            <ol id="olist">
+            </ol>
+        </div>
+
+    </section>
+    <script>
+
+        let btn = document.querySelector("#btn");
+        let ol = document.getElementById("olist");
+
+        btn.addEventListener("click", (e) => {
+            let li = document.createElement("li");
+            let food = document.getElementById("fname").value;
+            li.innerHTML = food;
+            if (food.trim() === "") {
+                alert("Enter the food Name:");
+                return;
+            }
+
+
+            let delbtn = document.createElement("button");
+            delbtn.innerHTML = "X";
+            delbtn.classList.add("delbtn");
+            delbtn.addEventListener("click", (de) => {
+                // if (confirm("Do you really wish to remove the food ?")) {
+                ol.removeChild(li);
+                // }
+            });
+            li.appendChild(delbtn);
+            ol.appendChild(li);
+
+            let ftext = document.getElementById("fname");
+            ftext.value = "";
+            ftext.focus();
+        });
+
+        document.getElementById("fname").addEventListener("keypress", (e) => {
+            if (e.key == "Enter") {
+                e.preventDefault();
+                btn.click();
+            }
+        });
+
+    </script>
+
+</body>
+
+</html>

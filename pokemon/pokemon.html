@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/src/output.css">
+</head>
+<body class="bg-gradient-to-b from-purple-500 via-pink-500 to-red-500 min-h-screen flex items-center justify-center  ">
+<section class="pokemon-container flex flex-col items-center rounded-lg bg-amber-50 shadow-lg h-[550px] p-4 w-fit">
+    <form action="">
+        <label for="enter-pokemon">Enter Pokémon Name:</label>
+        <input type="text" id="enter-pokemon" name="pokemon" class="border border-gray-300 rounded-lg  outline-none mt-2  pl-3" required><br>
+        <button  type="submit" id="search-button" class="bg-blue-500 text-white py-2 px-4 cursor-pointer rounded-xl ml-32 mt-10 hover:bg-blue-600">Search</button>
+    </form>
+    <div>
+        <h2 class="text-2xl font-bold mt-4 hidden">Pokémon Details</h2>
+        <p id="pokemon-name" class="text-xl"></p>
+        <p id="pokemon-type" class="text-lg"></p>
+        <p id="pokemon-ability" class="text-lg"></p>
+    </div>
+    <img src="" alt="" class="h-60 w-60 mt-10  hidden" id="pokemon-image">
+    <p id="error-msg" class=" text-2xl hidden text-purple-700">Pokémon not found</p>
+</section>
+<script src = "pokemon.js"></script>
+</body>
+</html> 

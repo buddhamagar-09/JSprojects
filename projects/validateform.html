@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="" method="post" onsubmit="return validateForm();">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username">
+        <label for="Phone">Phone:</label>
+        <input type="text" id="Phone" name="Phone">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email">
+        <label for="dob">Date of Birth:</label>
+        <input type="text" id="dob" name="dob" placeholder="xx-xx-xxxx">
+        <input type="submit" value="Submit">
+    </form>
+    <script>
+        function validateForm() {
+            let errno = 0;
+            const s_name = document.getElementById("username").value;
+            const s_phone = document.getElementById("Phone").value;
+            const s_email = document.getElementById("email").value;
+            const s_dob = document.getElementById("dob").value;
+
+            const phonepattern = /^\d{10,15}$/;
+            const emailpattern = /^\w+\@(\w+\.)+\w+$/;
+            const dobpattern = /^(\d{1,2}\-){2}(\d{2,4})$/;
+
+            if (s_name.trim() == "") {
+                alert("Name field cannot be empty");
+                errno++;
+            }
+
+            if (!phonepattern.test(s_phone)) {
+                alert("Phone pattern is not valid");
+                errno++;
+            }
+
+            if (!emailpattern.test(s_email)) {
+                alert("Email is not valid ");
+                errno++;
+            }
+
+            if (!dobpattern.test(s_dob)) {
+                alert("Date of birth is not valid.");
+                errno++;
+            }
+
+            if (errno == 0) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        };
+
+    </script>
+</body>
+
+</html>
